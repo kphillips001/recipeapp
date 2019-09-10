@@ -7,18 +7,20 @@ import Recipes from './pages/recipes';
 import SingleRecipe from './pages/singlerecipe';
 import Error from './pages/error';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import Navbar from './components/navbar';
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div>
-          <Switch>
-            <Route path='/' exact component={Home} />
-            <Route path='/recipes' component={Recipes} />
-            <Route path='/recipes/:id' component={SingleRecipe} />
-            <Route component={Error} />
-          </Switch>
+          <Navbar />
+            <Switch>
+              <Route path='/' exact component={Home} />
+              <Route path='/recipes' component={Recipes} />
+              <Route path='/recipes/:id' component={SingleRecipe} />
+              <Route component={Error} />
+            </Switch>
         </div>
       </Router>
     );
