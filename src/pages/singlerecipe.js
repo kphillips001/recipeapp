@@ -1,17 +1,29 @@
 import React, { Component } from 'react';
-import {recipeData} from '../data/tempDetails';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class SingleRecipe extends Component {
-
   constructor(props) {
     super(props);
     const id = this.props.match.params.id;
-
     this.state = {
-      recipe: recipeData,
-      id, 
-      loading: false
+      recipe: {},
+      id,
+      loading: true
+    };
+  }
+  async componentDidMount() {
+    const url = `https://www.food2fork.com/api/get?key=${
+      process.env.REACT_APP_API_KEY
+    }&rId=${this.state.id}`;
+    try {
+      const response = await fetch(url);
+      const responseData = await response.json();
+      this.setState({
+        recipe: responseData.recipe,
+        loading: false
+      });
+    } catch (error) {
+      console.log(error);
     }
   }
 
@@ -42,10 +54,10 @@ class SingleRecipe extends Component {
         <div className='row'>
           <div className='col-10 mx-auto col-md-6 my-3'>
             <Link
-              to='/recipes'
+              to="/recipes"
               className='btn btn-secondary mb-5 text-capatilize'
             >
-              Back to Recipes List
+              back to recipes list
             </Link>
             <img
               src={image_url}
@@ -54,6 +66,7 @@ class SingleRecipe extends Component {
               alt='recipe'
             />
           </div>
+          {/* info */}
           <div className='col-10 mx-auto col-md-6 my-3'>
             <h6 className='text-uppercase'>{title}</h6>
             <h6 className='text-warning text-capitalize text-slanted'>
@@ -91,4 +104,5 @@ class SingleRecipe extends Component {
     );
   }
 }
-export default SingleRecipe;
+
+ export default SingleRecipe;
