@@ -6,7 +6,7 @@ class SingleRecipe extends Component {
 
   constructor(props) {
     super(props);
-    const id = this.props.match.parms.id;
+    const id = this.props.match.params.id;
 
     this.state = {
       recipe: recipeData,
@@ -43,9 +43,9 @@ class SingleRecipe extends Component {
           <div className='col-10 mx-auto col-md-6 my-3'>
             <Link
               to='/recipes'
-              className='btn btn-warning mb-5 text-capatilize'
+              className='btn btn-secondary mb-5 text-capatilize'
             >
-              back to recipes list
+              Back to Recipes List
             </Link>
             <img
               src={image_url}
@@ -63,7 +63,7 @@ class SingleRecipe extends Component {
               href={publisher_url}
               target='_blank'
               rel='noopener noreferrer'
-              className='btn btn-primary mt-2 text-capitalize'
+              className='btn btn-info mt-2 text-capitalize'
             >
               publisher webpage
             </a>
@@ -71,7 +71,7 @@ class SingleRecipe extends Component {
               href={source_url}
               target='_blank'
               rel='noopener noreferrer'
-              className='btn btn-success mt-2 mx-2 text-capitalize'
+              className='btn btn-warning mt-2 mx-2 text-capitalize'
             >
               recipe url
             </a>
