@@ -7,10 +7,10 @@ class Home extends Component {
     return (
     <Header title='fabulous recipes'>
       <Link 
-        to='recipes' 
-        className='text-uppercase btn btn-secondary btn-lg mt-3'>
-        search recipes
-        </Link>
+          to='recipes' 
+          className='text-uppercase btn btn-secondary btn-lg mt-3'>
+          search recipes
+      </Link>
     </Header>
     );
   }

@@ -5,7 +5,8 @@ import {recipeData} from '../data/tempList';
 
 class Recipes extends Component {
   constructor(props) {
-    super(props);
+  super(props);
+  
   }
   state = {
     recipes: recipeData,

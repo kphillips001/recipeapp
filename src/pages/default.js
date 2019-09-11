@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Header from '../components/header';
 import {Link} from 'react-router-dom';
 
-class Error extends Component {
+class Default extends Component {
   render() {
     return (
     <Header title='404' styleClass='default-hero'>
@@ -18,4 +18,4 @@ class Error extends Component {
   }
 }
 
-export default Error;
+export default Default;
